@@ -23,6 +23,7 @@ export default {
                 title: this.title
             });
             console.warn(reply);
+            alert("Task added successfully")
         }
     }
     

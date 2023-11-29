@@ -2,7 +2,7 @@
     <div class="nav">
         <router-link to="/">Home</router-link>
         <router-link to="add">Add Task</router-link>
-        <router-link to="update">Update Task</router-link>
+        <!-- <router-link to="update">Update Task</router-link> -->
         <!-- <router-link to="delete">Update Task</router-link> -->
         <a href="#" v-on:click="logout">Logout</a>
     </div>

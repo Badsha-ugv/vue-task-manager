@@ -29,10 +29,13 @@ export default {
   color: #2c3e50;
   
 }
-
+/* Global Style */
 body{
   padding: 0; 
   margin: 0;
+}
+button{
+  cursor: pointer;
 }
 
 /* form global styling  */
@@ -53,6 +56,7 @@ body{
     border: none; 
     color: white; 
     height: 30px;
+    cursor: pointer;
 }
 
 </style>
