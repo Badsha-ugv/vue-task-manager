@@ -4,10 +4,12 @@
 
 <div class="form">
 
-    <input type="text" v-model="name" name="name" placeholder="Enter name" id="">
-    <input type="email" name="email" v-model="email" placeholder="Enter email" id="">
-    <input type="password" name="password" v-model="password" placeholder="Enter password" id=""> <br>
+    <input type="text" id="name" v-model="name" name="name" placeholder="Enter name" >
+    <input type="email" id="email" name="email" v-model="email" placeholder="Enter email" >
+    <input type="password" id="password" name="password" v-model="password" placeholder="Enter password" > <br>
     <button v-on:click="signup">Signup</button>
+
+    <router-link to="login">Login</router-link>
 </div>
 
 </template>
@@ -29,6 +31,12 @@ export default {
             password: '',
         }
     },
+    mounted() {
+        let user = localStorage.getItem('user');
+        if (user) {
+            this.$router.push({ name: "Home" });
+        }
+    },
     methods: {
         async signup() {
             console.log("Signup");
@@ -39,10 +47,11 @@ export default {
                 password: this.password
             });
 
-            if (reply.status == 201) {
-                alert("Success!!")
-            }
             localStorage.setItem("user", JSON.stringify(reply.data));
+            if (reply.status == 201) {
+                // alert("Success!!")
+                this.$router.push({name:"Home"})
+            }
 
 
         }
@@ -51,22 +60,5 @@ export default {
 </script>
 
 <style>
-.form{
-    width:300px;
-    margin:auto;
 
-}
-.form input{
-    width: 100%; 
-    height: 30px; 
-    border: 1px solid skyblue; 
-    margin-bottom: 20px;
-}
-.form button {
-    width: 100%; 
-    background: skyblue; 
-    border: none; 
-    color: white; 
-    height: 30px;
-}
 </style>
